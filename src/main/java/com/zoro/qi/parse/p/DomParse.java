@@ -17,7 +17,7 @@ import com.zoro.qi.parse.utils.DomUtils;
 import com.zoro.qi.parse.utils.MyStringUtils;
 
 /**
- * 正则模板接卸
+ * dom树模板解析
  * @author acer
  */
 public class DomParse extends ParseRecursion {
