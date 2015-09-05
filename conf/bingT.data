@@ -1,0 +1,89 @@
+{
+    "pageType": "regex",
+    "root": {
+        "key": "root",
+        "type": "node",
+        "value": "[\\s\\S]*",
+        "handler": [],
+        "childNode": {
+            "abstract": {
+                "key": "abstract",
+                "type": "node",
+                "value": "<div class=\"bk_b_container\">[\\s\\S]*?</a></p></div></div></div>",
+                "handler": [],
+                "childNode": {
+                    "keyWord": {
+                        "key": "keyWord",
+                        "type": "field",
+                        "value": "<h1>(.+?)</h1>",
+                        "handler": [["Test","aaa"],["Test","2015-08-01 23:55"],["DateS2L","14000000","yyyy-MM-dd hh:mm"],["DateL2S","eee","yyyy-MM-dd hh:mm EEE"]]
+                    },
+                    "keyWord2": {
+                        "key": "keyWord2",
+                        "type": "field",
+                        "value": "</h1><span>(.+?)</span></div>",
+                        "handler": []
+                    },
+                    "imgUrl": {
+                        "key": "imgUrl",
+                        "type": "field",
+                        "value": "<img class=\"rms_img\".*?src=\"(.*?)\"",
+                        "handler": []
+                    },
+                    "content": {
+                        "key": "content",
+                        "type": "field",
+                        "value": "<div class=\"bk_image_bottomright\">([\\s\\S]*?)<div class=\"bk_moreContent\">",
+                        "handler": []
+                    }
+                }
+            },
+            "information": {
+                "key": "information",
+                "type": "block",
+                "value": "<div class=\"bk_sidebar_attr_key\">[\\s\\S]*?</div></div>",
+                "handler": [],
+                "childNode": {
+                    "key": {
+                        "key": "key",
+                        "type": "field",
+                        "value": "<div class=\"bk_sidebar_attr_key\">([^>]*?)：",
+                        "handler": []
+                    },
+                    "value": {
+                        "key": "value",
+                        "type": "field",
+                        "value": "<div class=\"bk_sidebar_attr_value\">(.*?)</div>",
+                        "handler": []
+                    }
+                }
+            },
+            "abortWord": {
+                "key": "abortWord",
+                "type": "block",
+                "value": "<div class=\"bk_sidebar_related_img\">[\\s\\S]*?</p></div>",
+                "handler": [],
+                "childNode": {
+                    "word": {
+                        "key": "key",
+                        "type": "field",
+                        "value": "h=\"ID=.*?>([^>]*?)</a></p>",
+                        "handler": []
+                    },
+                    "word2": {
+                        "key": "word2",
+                        "type": "field",
+                        "value": "<p class=\"bk_sidebar_related_tag\">(.*?)</p></div>",
+                        "handler": []
+                    },
+                    "imgUrl": {
+                        "key": "imgUrl",
+                        "type": "field",
+                        "value": "amp;.*?[&\"]",
+                        "handler": []
+                    }
+                }
+            }
+        }
+    }
+}
