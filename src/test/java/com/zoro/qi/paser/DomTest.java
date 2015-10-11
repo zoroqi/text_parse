@@ -27,7 +27,7 @@ public class DomTest {
 		Element html = roots.get(0);
 		Elements childrens = html.children();
 		Element body = childrens.get(1);
-		System.out.println(body.nodeName());
+//		System.out.println(body.nodeName());
 		Parse parse = new DomParse(html, t,"http:\\bing.com");
 		Map out = (Map)parse.parse();
 		Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();

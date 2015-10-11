@@ -29,6 +29,9 @@ public class DomParse extends ParseRecursion {
 	@Override
 	public Object getField(TemplateNode template, Object data) {
 		Element field = DomUtils.getDom(template.getValue(), (Element)data);
+		if (field == null) {
+			return "";
+		}
 		return field.text();
 	}
 
@@ -62,9 +65,10 @@ public class DomParse extends ParseRecursion {
 		Map<String, TemplateNode> childNode = template.getChildNode();
 
 		Map<String, Object> map = new LinkedHashMap<String, Object>();
-
-		for (String key : childNode.keySet()) {
-			map.put(key, parse(childNode.get(key), field));
+		if (field != null) {
+			for (String key : childNode.keySet()) {
+				map.put(key, parse(childNode.get(key), field));
+			}
 		}
 		return map;
 	}
