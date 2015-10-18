@@ -8,6 +8,9 @@ import java.util.Map;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.zoro.qi.parse.Parse;
+import com.zoro.qi.parse.ParseHandleA;
+
 
 
 public class DomUtils {
@@ -44,7 +47,7 @@ public class DomUtils {
 		List<Element> middle = null;
 		for (String p : pathArrays) {
 			middle = new ArrayList<Element>();
-			String[] pathNode = p.split("@", 5);
+			String[] pathNode = p.split(Parse.SPILT, 5);
 			String tag = pathNode[0];
 			String id = pathNode[1];
 			String classN = pathNode[2];

@@ -17,6 +17,7 @@ public interface Parse {
 	public static final String TYPE_FIELD = "field";
 	public static final String TYPE_NODE = "node";
 	public static final String CHILD = "childNode";
+	public static final String SPILT = "#";
 
 	public Object parse();
 }
